@@ -1,0 +1,19 @@
+[project]
+name = "applied-learning"
+version = "0.1.0"
+description = "Personal applied-learning workspace: hands-on ML topic ramps (70% hands-on / 20% mentoring / 10% coursework)."
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+    "scikit-learn>=1.4",
+    "jupyter>=1.0",
+    "ipykernel>=6.29",
+    "nbconvert>=7.16",
+    "torch>=2.2",
+    "torchvision>=0.17",
+]
+
+# Notebooks-only repo: no installable package, just a managed environment.
+[tool.uv]
+package = false
