@@ -53,3 +53,23 @@ Identifies a capacity gap regime where large teacher-student size differences de
 **[Model compression via distillation and quantization](https://arxiv.org/abs/1802.05668)**
 Polino, Pascanu, Alistarh — 2018
 Combines quantization-aware training with knowledge distillation in a joint objective, using the full-precision teacher to guide the quantized student. Shows that distillation recovers accuracy lost to aggressive quantization, making the two compression axes complementary rather than independent.
+
+---
+
+## Mechanism transfer and failure modes
+
+**[Mechanism Distillation](https://proceedings.mlr.press/v243/wu24a/wu24a.pdf)**
+Wu et al. — ICML 2024
+Asks whether KD transfers the *mechanisms* a teacher uses (not just its output distribution) to the student. Finds that standard soft-label distillation does not result in perfect mechanism transfer; Jacobian matching and contrastive representation learning enable partial but incomplete transfer. Introduces the concept of a student being a good "stand-in model" for the teacher — sharing its learned causal structure — as a stricter standard than output-distribution fidelity. Key implication: a student that agrees with a teacher on test outputs may still behave very differently under interventions or distribution shift.
+
+**[Distilled Circuits](https://arxiv.org/abs/2505.10822)**
+2025
+Applies mechanistic interpretability tools to distilled models, finding that students reorganise and selectively discard teacher components rather than faithfully copying them. Provides circuit-level evidence that the mechanism-transfer gap observed by Wu et al. is structural: students develop their own internal representations that happen to produce similar outputs on IID inputs but diverge on shifted ones. Complements Mechanism Distillation with a bottom-up perspective.
+
+**[Does Knowledge Distillation Really Work?](https://openreview.net/pdf?id=Toe9Otc8ZTt)**
+Stanton, Izmailov, Kirichenko, Alemi, Wilson — NeurIPS 2021
+Empirically demonstrates two counterintuitive results: (1) a large student-teacher predictive distribution gap persists even when the student has sufficient capacity to perfectly match the teacher, suggesting optimization — not capacity — is the bottleneck; (2) increasing fidelity (closer distribution matching) can paradoxically *hurt* student generalisation on CIFAR-100. The fidelity-generalisation paradox established here is replicated and extended in arXiv 2505.15442 (2025, ACL). Essential reading before assuming "more teacher alignment = better student".
+
+**[Weight Averaging Improves Knowledge Distillation under Domain Shift](https://arxiv.org/abs/2309.11446)**
+ICCV 2023 OOD-CV Workshop
+Shows that averaging student weights over a single training trajectory (WAKD) partially recovers distillation performance under domain shift, yielding +0.8 pp on ResNet-50→ResNet-18 and +1.6 pp on DeiT-Small→DeiT-Tiny across PACS and OfficeHome held-out domains. The mechanism: weight averaging smooths the loss landscape and reduces reliance on sharp domain-specific features. Gains are modest and based on two dataset/architecture pairs (workshop paper), but the approach is training-free and composable with any distillation objective.
