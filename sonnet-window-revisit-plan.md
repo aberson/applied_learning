@@ -35,7 +35,7 @@ Row: `commit | verdict (OK | needs-fix | reverted) | note`.
 
 - **Problem:** `a759017` (Jun 15, Sonnet) added 803 lines of ML-pedagogy content under Sonnet: a brand-new 546-line notebook plus edits to two existing notebooks and the frontier-papers doc. Sonnet's known failure modes here are fabricated/wrong citations, incorrect distillation / distribution-shift claims, and notebooks that don't execute clean headless on CPU — each a direct violation of this repo's `CLAUDE.md` conventions.
 - **Type:** code
-- **Issue:** #
+- **Issue:** #4
 - **Files:** topics/model-distillation/70-handson/notebooks/05-distribution-shift-detection.ipynb (NEW, 546 lines), topics/model-distillation/70-handson/notebooks/02-logit-distillation-mnist.ipynb, topics/model-distillation/70-handson/notebooks/04-tradeoffs.ipynb, topics/model-distillation/10-coursework/papers-frontier.md
 - **Done when:**
   - `git show a759017` diffed for all 4 files
