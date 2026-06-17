@@ -45,6 +45,7 @@ Row: `commit | verdict (OK | needs-fix | reverted) | note`.
   - any `.py` examples added are ASCII-only `print()` (Windows cp1252)
   - verdict appended to sonnet-window-revisit-findings.md; fixes applied where needed
 - **Flags:** --reviewers code
+- **Status:** DONE (2026-06-17) — verdict: needs-fix → fixed. 2 blocking SyntaxErrors (nb02/nb04) + 2 wrong citation venues (Wu et al., 2505.15442) + 1 fabricated-by-confusion CelebA statistic, all corrected; runnability gate now passes on all 3 touched notebooks; all 6 citations verified against primary sources; technical claims sound; ASCII-only clean. See sonnet-window-revisit-findings.md.
 
 ## Notes
 

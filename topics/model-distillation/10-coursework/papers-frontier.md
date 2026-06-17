@@ -58,17 +58,17 @@ Combines quantization-aware training with knowledge distillation in a joint obje
 
 ## Mechanism transfer and failure modes
 
-**[Mechanism Distillation](https://proceedings.mlr.press/v243/wu24a/wu24a.pdf)**
-Wu et al. — ICML 2024
+**[What Mechanisms Does Knowledge Distillation Distill?](https://proceedings.mlr.press/v243/wu24a/wu24a.pdf)**
+Wu, Lubana, Mlodozeniec, Kirk, Krueger — UniReps Workshop (NeurIPS 2023), PMLR v243
 Asks whether KD transfers the *mechanisms* a teacher uses (not just its output distribution) to the student. Finds that standard soft-label distillation does not result in perfect mechanism transfer; Jacobian matching and contrastive representation learning enable partial but incomplete transfer. Introduces the concept of a student being a good "stand-in model" for the teacher — sharing its learned causal structure — as a stricter standard than output-distribution fidelity. Key implication: a student that agrees with a teacher on test outputs may still behave very differently under interventions or distribution shift.
 
 **[Distilled Circuits](https://arxiv.org/abs/2505.10822)**
 2025
-Applies mechanistic interpretability tools to distilled models, finding that students reorganise and selectively discard teacher components rather than faithfully copying them. Provides circuit-level evidence that the mechanism-transfer gap observed by Wu et al. is structural: students develop their own internal representations that happen to produce similar outputs on IID inputs but diverge on shifted ones. Complements Mechanism Distillation with a bottom-up perspective.
+Applies mechanistic interpretability tools to distilled models, finding that students reorganise and selectively discard teacher components rather than faithfully copying them. Provides circuit-level evidence that the mechanism-transfer gap observed by Wu et al. is structural: students develop their own internal representations that happen to produce similar outputs on IID inputs but diverge on shifted ones. Complements the Wu et al. mechanism-transfer findings with a bottom-up perspective.
 
 **[Does Knowledge Distillation Really Work?](https://openreview.net/pdf?id=Toe9Otc8ZTt)**
 Stanton, Izmailov, Kirichenko, Alemi, Wilson — NeurIPS 2021
-Empirically demonstrates two counterintuitive results: (1) a large student-teacher predictive distribution gap persists even when the student has sufficient capacity to perfectly match the teacher, suggesting optimization — not capacity — is the bottleneck; (2) increasing fidelity (closer distribution matching) can paradoxically *hurt* student generalisation on CIFAR-100. The fidelity-generalisation paradox established here is replicated and extended in arXiv 2505.15442 (2025, ACL). Essential reading before assuming "more teacher alignment = better student".
+Empirically demonstrates two counterintuitive results: (1) a large student-teacher predictive distribution gap persists even when the student has sufficient capacity to perfectly match the teacher, suggesting optimization — not capacity — is the bottleneck; (2) increasing fidelity (closer distribution matching) can paradoxically *hurt* student generalisation on CIFAR-100. A related generalisation-vs-fidelity paradox is reported for LLM reasoning distillation in arXiv 2505.15442 (Ramesh, Sengupta, Chakraborty — 2025, preprint). Essential reading before assuming "more teacher alignment = better student".
 
 **[Weight Averaging Improves Knowledge Distillation under Domain Shift](https://arxiv.org/abs/2309.11446)**
 ICCV 2023 OOD-CV Workshop
